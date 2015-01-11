@@ -11,17 +11,33 @@
     "ci",
     "code-ship"
   ],
+  "config": {
+    "blanket": {
+      "pattern": [
+        "/lib/",
+        "index.js"
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "test"
+      ]
+    }
+  },
   "author": "James Hrisho",
   "license": "MIT",
   "devDependencies": {
+    "blanket": "^1.1.6",
+    "coveralls": "^2.11.2",
     "gulp": "^3.8.10",
     "gulp-jshint": "^1.9.0",
     "gulp-mocha": "^2.0.0",
     "mocha": "^2.1.0",
+    "mocha-lcov-reporter": "0.0.1",
     "should": "^4.5.0"
   },
   "dependencies": {
     "lodash": "^2.4.1",
+    "mocha-lcov-reporter": "0.0.1",
     "request": "^2.51.0"
   }
 }

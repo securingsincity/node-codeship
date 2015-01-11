@@ -3,7 +3,7 @@ var codeShipHTTP = require('./lib/CodeShipHTTP.js'),
 
 
 var CodeShipClient = function(options) {
-  if (!options.hasOwnProperty('apiKey')) {
+  if (!options.apiKey) {
     throw 'must specify api key';
   }
   this.apiKey = options.apiKey;

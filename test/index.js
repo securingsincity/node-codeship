@@ -1,12 +1,14 @@
 var _ = require('lodash'),
  CodeShip = require('..');
-require('should');
+ CodeShipLib = require('../lib/CodeShipHTTP');
+ require('should');
 
 describe('Code ship ci api test suite', function () {
   it('expects an api key', function () {
     var thrower = function () {
         new CodeShip();
     };
+
     thrower.should.throw();
   });
   
@@ -38,6 +40,28 @@ describe('Code ship ci api test suite', function () {
       done();
     })
   });
+
+  it('projects with no api key should fail ', function() {
+      var thrower = function() {
+        CodeShipLib.projects();
+      }
+      thrower.should.throw();
+  });
+  
+  it('project with no api key should fail ', function() {
+      var thrower = function() {
+        CodeShipLib.project();
+      }
+      thrower.should.throw();
+  });
+  
+  it('buildrestart with no api key should fail ', function() {
+      var thrower = function() {
+        CodeShipLib.buildRestart();
+      }
+      thrower.should.throw();
+  });
+  
   it('project should return valid info', function(done) {
 
     var codeShip = new CodeShip({
@@ -51,5 +75,26 @@ describe('Code ship ci api test suite', function () {
       response.repository_name.should.be.exactly("securingsincity/backbone-react-ui");
       done();
     })
+  });
+
+  it('project with no projectId should fail', function() {
+
+    var codeShip = new CodeShip({
+      apiKey : process.env.API_KEY
+    });
+    var thrower = function () {
+      codeShip.project(null,function (response) {});
+    }
+     thrower.should.throw();
+  });
+  it('buildRestart with no buildId should fail', function() {
+
+    var codeShip = new CodeShip({
+      apiKey : process.env.API_KEY
+    });
+    var thrower = function () {
+      codeShip.buildRestart(null,function (response) {});
+    }
+     thrower.should.throw();
   });
 });
