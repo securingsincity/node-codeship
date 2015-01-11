@@ -1,0 +1,26 @@
+{
+  "name": "node-codeship",
+  "version": "1.0.0",
+  "description": "A codeship api wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp mocha"
+  },
+  "keywords": [
+    "codeship",
+    "ci",
+    "code-ship"
+  ],
+  "author": "James Hrisho",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0",
+    "gulp-mocha": "^2.0.0",
+    "should": "^4.5.0"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "request": "^2.51.0"
+  }
+}
