@@ -1,6 +1,6 @@
 {
   "name": "node-codeship",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A codeship api wrapper",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,10 @@
         "test"
       ]
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/securingsincity/node-codeship.git"
   },
   "author": "James Hrisho",
   "license": "MIT",
