@@ -4,7 +4,7 @@
   "description": "A codeship api wrapper",
   "main": "index.js",
   "scripts": {
-    "test": "gulp mocha"
+    "test": "mocha"
   },
   "keywords": [
     "codeship",
