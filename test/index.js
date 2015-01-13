@@ -11,6 +11,13 @@ describe('Code ship ci api test suite', function () {
 
     thrower.should.throw();
   });
+  it('expects an api key', function () {
+    var thrower = function () {
+        new CodeShip({});
+    };
+
+    thrower.should.throw();
+  });
   
   it('apikey given should match apikey of instance', function() {
     var codeShip = new CodeShip({
@@ -96,5 +103,20 @@ describe('Code ship ci api test suite', function () {
       codeShip.buildRestart(null,function (response) {});
     }
      thrower.should.throw();
+  });
+  it('buildRestart with valid build id should work', function(done) {
+
+    var codeShip = new CodeShip({
+      apiKey : process.env.API_KEY
+    });
+
+    codeShip.buildRestart(3561004,function (response) {
+      response.id.should.be.exactly(3561004);
+      response.project_id.should.be.exactly(54507);
+      response.status.should.be.exactly('testing');
+      response.github_username.should.be.exactly('securingsincity');
+      done();
+    });
+    
   });
 });
